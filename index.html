@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">PRAKTIKUM HTML LANJUTAN</p>
+      <h1>Portal Mahasiswa</h1>
+      <p>Belajar struktur HTML, tabel, formulir, dan elemen multimedia.</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">Lab2Web</a>
+      <div class="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="#nilai">Nilai Praktikum</a>
+        <a href="#registrasi">Registrasi</a>
+        <a href="#multimedia">Multimedia</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container content">
+    <section class="intro card">
+      <h2>Informasi Akademik</h2>
+      <p>Di praktikum ini, mahasiswa mempelajari tabel HTML, formulir, elemen semantik, validasi input, serta audio dan video.</p>
+    </section>
+
+    <section class="card" id="mahasiswa">
+      <h2>Data Mahasiswa</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>NIM</th><th>Nama</th><th>Program Studi</th></tr></thead>
+          <tbody>
+            <tr><td>31241001</td><td>Andi</td><td>Teknik Informatika</td></tr>
+            <tr><td>31241002</td><td>Budi</td><td>Teknik Informatika</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="nilai">
+      <h2>Nilai Praktikum</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No.</th><th>Nama</th><th>Nilai</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Andi</td><td>85</td></tr>
+            <tr><td>2</td><td>Budi</td><td>90</td></tr>
+          </tbody>
+          <tfoot><tr><th colspan="2">Rata-rata</th><th>87,5</th></tr></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="registrasi">
+      <h2>Form Registrasi Mahasiswa</h2>
+      <form id="registration-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="nama">Nama lengkap</label>
+            <input type="text" id="nama" name="nama" minlength="3" required placeholder="Masukkan nama">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="nama@email.com">
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" minlength="6" required placeholder="Minimal 6 karakter">
+          </div>
+          <div class="field">
+            <label for="tanggal">Tanggal lahir</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+          </div>
+          <div class="field">
+            <label for="umur">Umur</label>
+            <input type="number" id="umur" name="umur" min="17" max="60" required placeholder="17–60">
+          </div>
+          <div class="field">
+            <label for="prodi">Program studi</label>
+            <select id="prodi" name="prodi" required>
+              <option value="">-- Pilih program studi --</option>
+              <option value="ti">Teknik Informatika</option>
+              <option value="si">Sistem Informasi</option>
+            </select>
+          </div>
+        </div>
+        <fieldset>
+          <legend>Jenis kelamin</legend>
+          <label class="choice"><input type="radio" name="jk" value="Laki-laki" required> Laki-laki</label>
+          <label class="choice"><input type="radio" name="jk" value="Perempuan"> Perempuan</label>
+        </fieldset>
+        <fieldset>
+          <legend>Keahlian</legend>
+          <label class="choice"><input type="checkbox" name="skill" value="HTML"> HTML</label>
+          <label class="choice"><input type="checkbox" name="skill" value="CSS"> CSS</label>
+          <label class="choice"><input type="checkbox" name="skill" value="JavaScript"> JavaScript</label>
+        </fieldset>
+        <div class="field">
+          <label for="alamat">Alamat</label>
+          <textarea id="alamat" name="alamat" rows="4" required placeholder="Masukkan alamat"></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit">Daftar</button>
+          <button type="reset" class="secondary">Reset</button>
+        </div>
+        <p id="form-message" class="form-message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="card" id="multimedia">
+      <h2>Media Pembelajaran</h2>
+      <p class="muted">Tambahkan file audio.mp3 dan video.mp4 ke folder <code>media</code> agar media dapat diputar.</p>
+      <h3>Audio</h3>
+      <audio controls>
+        <source src="media/audio.mp3" type="audio/mpeg">
+        Browser tidak mendukung audio.
+      </audio>
+      <h3>Video</h3>
+      <video controls width="100%">
+        <source src="media/video.mp4" type="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+    </section>
+  </main>
+
+  <footer><div class="container"><p>&copy; 2026 Lab2Web · Praktikum Teknik Informatika</p></div></footer>
+  <script>
+    document.getElementById('registration-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('form-message').textContent =
+        'Form berhasil divalidasi di browser. Data belum dikirim ke server.';
+    });
+    document.getElementById('registration-form').addEventListener('reset', function () {
+      document.getElementById('form-message').textContent = '';
+    });
+  </script>
+</body>
+</html>
