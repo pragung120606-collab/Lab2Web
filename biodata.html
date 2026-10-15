@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Mahasiswa | Lab2Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero compact">
+    <div class="container">
+      <p class="eyebrow">PROFIL AKADEMIK</p>
+      <h1>Biodata Mahasiswa</h1>
+      <p>Informasi dasar dan formulir biodata mahasiswa.</p>
+    </div>
+  </header>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">Lab2Web</a>
+      <div class="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="#biodata">Biodata</a>
+        <a href="#form">Form Biodata</a>
+      </div>
+    </div>
+  </nav>
+  <main class="container content">
+    <section class="card" id="biodata">
+      <h2>Data Mahasiswa</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Keterangan</th></tr></thead>
+          <tbody>
+            <tr><td>NIM</td><td>31241001</td></tr>
+            <tr><td>Nama</td><td>Nama Mahasiswa</td></tr>
+            <tr><td>Program Studi</td><td>Teknik Informatika</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">Ganti NIM dan nama contoh di atas dengan data kamu sendiri sebelum dikumpulkan.</p>
+    </section>
+    <section class="card" id="form">
+      <h2>Form Biodata</h2>
+      <form id="biodata-form">
+        <div class="field"><label for="nama">Nama</label><input type="text" id="nama" name="nama" required></div>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+        <div class="field">
+          <label for="prodi">Program Studi</label>
+          <select id="prodi" name="prodi" required>
+            <option value="">-- Pilih --</option>
+            <option value="ti">Teknik Informatika</option>
+            <option value="si">Sistem Informasi</option>
+          </select>
+        </div>
+        <div class="field"><label for="alamat">Alamat</label><textarea id="alamat" name="alamat" rows="4" required></textarea></div>
+        <div class="actions"><button type="submit">Simpan</button><button type="reset" class="secondary">Reset</button></div>
+        <p id="message" class="form-message" role="status"></p>
+      </form>
+    </section>
+  </main>
+  <footer><div class="container"><p>&copy; 2026 Lab2Web · Teknik Informatika</p></div></footer>
+  <script>
+    document.getElementById('biodata-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('message').textContent =
+        'Biodata berhasil divalidasi di browser. Data belum disimpan ke server.';
+    });
+    document.getElementById('biodata-form').addEventListener('reset', function () {
+      document.getElementById('message').textContent = '';
+    });
+  </script>
+</body>
+</html>
